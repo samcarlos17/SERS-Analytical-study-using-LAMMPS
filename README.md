@@ -8,3 +8,4 @@ The following files are present in this repo:
 5. rs_input: This is my lammps input script for ordinary Raman Scattering simulation in Ag structure
 6. vdos_ag : This my VDOS plot for Ag structure as obtained
 7. vdos_agpyr: This is my VDOS plot for Ag-Pyr structure as obtained
+7. vdos_script.py: This is the python script used for post processing of vcaf data obtained from lammps simulations. It performs a Fourrier transform to obtain the corresponding VDOS data
