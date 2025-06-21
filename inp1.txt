@@ -1,0 +1,22 @@
+# Initialize
+units metal
+atom_style atomic
+boundary f f f  # Non-periodic boundaries for a nanoparticle
+
+# Read structure
+read_data ag_icosa.data
+
+# Pair potential
+pair_style eam
+pair_coeff * * Ag_u3.eam
+
+# Minimize energy
+minimize 1e-4 1e-6 1000 10000
+
+# Apply thermal fluctuations for vibrational analysis
+fix 1 all langevin 300.0 300.0 0.1 12345
+fix 2 all nve
+
+# Dump atomic positions for post-processing
+dump 1 all custom 100 vibrational_data.lammpstrj id type x y z
+run 10000
